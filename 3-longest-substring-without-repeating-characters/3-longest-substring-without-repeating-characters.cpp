@@ -3,9 +3,10 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         int count = 0;
+        map<char,int> m;
         for(int i=0;i<s.length();i++){
             int Localcount = 1;
-            map<char,int> m;
+            
             m.insert(make_pair(s[i],1));
             for(int j=i+1;j<s.length();j++){
                 if(!m.count(s[j])){
@@ -20,6 +21,7 @@ public:
                 if(Localcount>count){
                         count=Localcount;
                     }
+            m.clear();
         }
         return count;
     }
